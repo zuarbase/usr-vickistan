@@ -1,0 +1,41 @@
+site_name: mkdocs-markdown Template
+site_description: 'mkdocs-markdown Template'
+site_author: 'Steve Zuar'
+docs_dir: docs/
+
+theme:
+  name: material
+  features:
+    - content.code.annotate
+    - toc.integrate
+    
+plugins:
+   - search
+
+markdown_extensions:
+   - admonition
+   - codehilite
+   - def_list
+   - fenced_code
+   - footnotes
+   - markdown_include_lines.main:
+        base_path: docs/
+   - markdown_include.include:
+        base_path: docs/
+   - meta        
+   - pymdownx.details
+   - pymdownx.highlight:
+       use_pygments: true
+   - pymdownx.inlinehilite
+   - pymdownx.snippets
+   - pymdownx.superfences
+   - pymdownx.tabbed:
+       alternate_style: true
+   - tables
+   - toc:
+       title: On this page
+       permalink: true
+       permalink_title: Permanent link to this section for reference
+
+extra_css:
+  - css/pygments.css
