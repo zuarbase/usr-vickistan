@@ -1,0 +1,73 @@
+Troubleshooting Mitto
+====
+
+Primary Steps:
+---
+
+1. Do we have access to this machine? Of so, continue, else try to find out connection info in dropbox paper or the customer's slack channel.
+2. If you are researching an error with a job, check the job logs.
+3. If this is a UI error or a wizard error, check the JS console and the logs (see below).
+
+
+Mitto Logs:
+----
+Tail all logs:
+
+	tail -f -n 1 /var/mitto/log/mitto.log /var/mitto/log/gunicorn.log /var/mitto/log/uwsgi.log /var/mitto/log/scheduler.log /var/mitto/log/auth.log /var/log/nginx/access.log /var/log/nginx/error.log_ 
+
+Nginx Logs:
+---
+
+	tail -n 100 -f /var/log/nginx/access.log_
+
+	tail -n 100 -f /var/log/nginx/error.log
+
+Mitto Logs:
+---
+
+	tail -n 100 -f /var/mitto/log/mitto.log_
+
+	tail -n 100 -f /var/mitto/log/gunicorn.log
+
+	tail -n 100 -f /var/mitto/log/uwsgi.log
+
+	tail -n 100 -f /var/mitto/log/scheduler.log
+
+	tail -n 100 -f /var/mitto/log/auth.log
+
+Individual Job Logs:
+---
+
+	tail -n 100 -f /var/log/mitto/{job_name}.log_
+
+Memory check:
+---
+
+	sudo grep -i oom /var/log/*log_
+
+	sudo fgrep OutOfMemory var/mitto/log/*log
+
+Email
+---
+
+[Troubleshooting Email](https://zuarkb.atlassian.net/wiki/spaces/MIT/pages/1053392897/Troubleshooting+Email?search_id=9c428a8e-5fb4-4ad5-a125-1405c4e8a223)
+
+
+Mitto Services:
+---
+
+	sudo systemctl_
+
+	sudo systemctl status
+
+	sudo systemctl status --all
+
+###Important Services:
+
+1. gunicorn
+2. uwsgi
+3. waf
+4. auth
+5. scheduler
+6. cron
+7. postgresql

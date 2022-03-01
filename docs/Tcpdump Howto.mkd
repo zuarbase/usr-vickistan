@@ -1,0 +1,33 @@
+Tcpdump Howto
+=============
+
+Shows traffic on interface eth0 on port 8080
+------
+
+	tcpdump -i eth0 tcp port 8080 -vv -X_
+
+	-i interface
+
+	-vv very verbose output
+
+	-X show both HEX and ASCII
+
+Shows traffic going to or coming from the host IP
+-----
+
+	tcpdump host 10.0.0.10_
+
+Shows traffic coming from 10.0.0.10
+----
+
+	tcpdump src 10.0.0.10_
+
+Shows traffic going to 10.0.0.10
+----
+	
+	tcpdump dst 10.0.0.10_
+
+Shows all traffic on the 10.0.0.0/24 subnet
+----
+
+	tcpdump net 10.0.0.0./24_

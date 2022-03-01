@@ -1,0 +1,19 @@
+Create Snapshot of Digital Ocean Droplet
+====
+
+Snapshots are on-demand disk images of DigitalOcean Droplets saved to your account. 
+Snapshots may be made with the Droplet powered off or left on. The recommendation is to power it off before creating the snapshot.
+
+1. Log into https://cloud.digitalocean.com/
+2. In the right top corner, select the correct team. For most customer mittos this should be the zuar team.
+3. Click the correct Droplet to go to its detail page.
+4. Click Power in the Droplet's left menu.
+5. Click the Turn off button. If not shutting down, proceed to step 7.
+6. Click the Turn off button button on the popup window and wait until you see Turn on Droplet on the page. This indicates that the Droplet has been powered off.
+7. Once the Droplet is powered off, click Snapshots in Droplet’s left menu.
+8. Click the "Take snapshot" button.
+9. Once the snapshot is finished, you will see it listed in the Droplet snapshots window.
+
+**There is a cost associated with a Droplet whether it is shut down or active. There is also an additional cost associate with a snapshot.
+
+
