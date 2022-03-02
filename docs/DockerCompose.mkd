@@ -1,0 +1,54 @@
+Useful Docker-compose Commands
+===
+
+At Zuar, we mostly use docker-compose instead of docker. It is helpful to create an alias for this command as follows:
+
+	alias dc="/usr/local/bin/docker-compose"_
+
+You can find out where your docker-compose executable is using the which command as follows:
+
+	which docker-compose_
+
+To start docker and its containers and run it in the background:
+
+	docker-compose up -d_
+
+To see the running containers:
+
+	docker-compose ps_
+
+The output will look something like this:
+
+   Name                 Command               State                   Ports               
+------------------------------------------------------------------------------------------
+auth         /app/entry_debug.sh /opt/p ...   Up       127.0.0.1:10001->10001/tcp,        
+                                                       127.0.0.1:5756->5756/tcp           
+db           docker-entrypoint.sh postgres    Up       5432/tcp                           
+mitto        /app/entry.sh                    Exit 0                                      
+mitto_zwaf   dockerize -timeout 1m -wai ...   Up       0.0.0.0:443->443/tcp,:::443->443/tc
+                                                       p, 0.0.0.0:80->80/tcp,:::80->80/tcp
+scheduler    /app/entry.sh /opt/pyenv/b ...   Up       127.0.0.1:10003->10003/tcp         
+vsftpd       /app/entry.sh                    Exit 0                                      
+webapp       /app/entry_debug.sh /opt/p ...   Up       127.0.0.1:10002->10002/tcp,        
+
+                                                       127.0.0.1:7127->7127/tcp
+
+Each line of the output contains these fields:
+
++ Name – The name of the container.
+
++ Command – The command that is executed when starting the container.
+
++ State – The status of the container.
+
++ Ports – The container’s published ports.
+
+To restart the container, do this:
+
+	docker-compose down && docker-compose up -d_
+
+You are going to need to view the logs in the docker container with this command:
+
+	docker-compose logs -f_
+
+
